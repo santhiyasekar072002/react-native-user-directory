@@ -2,14 +2,13 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, useColorScheme } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
 
-// 👇👇👇 1. DetailRow Component-ஐ இங்கே (வெளியே) வைக்க வேண்டும் 👇👇👇
+
 const DetailRow = ({ label, value, colors }) => (
     <View style={styles.detailContainer}>
         <Text style={[styles.label, { color: colors.text }]}>{label}:</Text>
         <Text style={[styles.value, { color: colors.text }]}>{value}</Text>
     </View>
 );
-// 👆👆👆 1. DetailRow Component-ஐ இங்கே (வெளியே) வைக்க வேண்டும் 👆👆👆
 
 const UserDetailScreen = () => {
     const { user } = useLocalSearchParams();
@@ -23,7 +22,6 @@ const UserDetailScreen = () => {
         borderColor: colorScheme === 'dark' ? '#333' : '#e0e0e0',
     };
     
-    // 🔥 2. CRITICAL FIX: user data இல்லை என்றால் crash ஆகாமல் இருக்க
     if (!user || typeof user !== 'string') {
         return (
             <View style={[styles.centered, { backgroundColor: colors.background }]}>
@@ -134,3 +132,4 @@ const styles = StyleSheet.create({
 });
 
 export default UserDetailScreen;
+
