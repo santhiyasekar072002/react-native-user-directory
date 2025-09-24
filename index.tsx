@@ -73,12 +73,11 @@ const UserListScreen = () => {
     }
   };
 
-  // 🔥 இந்த ஃபங்ஷனில் தான் பிழை திருத்தம் செய்யப்பட்டுள்ளது
+ 
   const toggleDarkMode = () => {
     const newScheme = colorScheme === 'dark' ? 'light' : 'dark';
     setOverrideScheme(newScheme);
     
-    // Appearance.setColorScheme நேரடியாக வேலை செய்யவில்லை என்றால், Appearance.default-ஐப் பயன்படுத்துக
     if (Appearance.setColorScheme) {
         Appearance.setColorScheme(newScheme);
     } else if (Appearance.default?.setColorScheme) {
